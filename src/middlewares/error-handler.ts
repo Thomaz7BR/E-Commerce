@@ -1,12 +1,8 @@
 import type { Request, Response, NextFunction} from "express";
+import jwt from "jsonwebtoken";
 import { AppError } from "../errors/AppError.js";
 
-export function errorHandler(
-    err: Error,
-    req: Request,
-    res: Response,
-    next: NextFunction
-) {
+export function errorHandler( err: Error,  req: Request, res: Response, next: NextFunction) {
     if (err instanceof AppError){
         return res.status(err.statusCode).json({ message: err.message});
     }
