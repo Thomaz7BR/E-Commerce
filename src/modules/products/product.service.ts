@@ -24,3 +24,11 @@ export async function registerProduct(data: ProductInput) {
         }
     })
 }
+
+
+export async function listProducts(){
+    return prisma.product.findMany({
+    include: {category: true},
+            
+    });
+}

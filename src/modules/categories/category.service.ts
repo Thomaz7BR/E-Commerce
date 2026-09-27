@@ -9,3 +9,7 @@ export async function registerCategory(data: CategoryInput){
         
     }})
 }
+
+export async function listCategories(){
+    return prisma.category.findMany();
+}
